@@ -1,0 +1,31 @@
+name: Commiter
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day
+    - cron: "18 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  Q8:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: your_roll_id@ds.study.iitm.ac.in
+        run: |
+          git clone github_repo_url
+          cd github_repo_name
+          echo "$(date +\"%Y-%m-%d %H:%M:%S\")" >> time.txt
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update time.txt" || exit 0
+          git push
