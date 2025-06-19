@@ -18,8 +18,8 @@ jobs:
         
       - name: 23f2001627@ds.study.iitm.ac.in
         run: |
-          git clone github_repo_url
-          cd github_repo_name
+          git clone https://github.com/HarshalGunjalOp/tds-project-1
+          cd tds-project-1
           echo "$(date +\"%Y-%m-%d %H:%M:%S\")" >> time.txt
 
       - name: Commit and push changes
